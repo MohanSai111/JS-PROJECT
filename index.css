@@ -1,0 +1,577 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* page-1 */
+#main_container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.side {
+  width: 50%;
+  height: 100%;
+  overflow: visible;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#img2 {
+ top: 10%;
+  width: 60%;
+  object-fit: contain;
+}
+.HamBurger{
+  position: absolute;
+  top: 10px;
+  margin-left: 710px;
+  font-size: 28px;
+  border: none;
+}
+/* -------------------- */
+/* 1. Wrapper: Positions the ring in the center of the image */
+/* 1. The Wrapper (The Container) */
+.spin-text-wrapper {
+    position: absolute;
+    top: 40%;
+    left:30%;
+    /* Centers the circle */
+    transform: translate(-50%, -50%);
+    
+    /* HUGE SIZE */
+    width: 900px;
+    height: 900px;
+    
+    /* Sits behind the drink */
+    z-index: 10; 
+    pointer-events: none;
+    
+    /* THE ENGINE: This tells it to use the "spinCircle" rule below */
+    animation: spinCircle 20s linear infinite;
+}
+
+/* 2. The Text Color (VISIBILITY FIX) */
+.spin-text-wrapper text {
+   fill: #fff;       /* Changed from White to Gold so you can see it! */
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    font-weight: 100;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+}
+
+/* 3. The SVG Logic */
+.spin-text-wrapper svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* 4. Drink Image Z-Index */
+#img2 {
+    position: relative;
+    z-index: 10; /* Ensures drink is ON TOP of the text */
+}
+
+/* ================================================= */
+/* IMPORTANT: Paste this at the VERY END of your file */
+/* This defines the rotation movement.               */
+/* ================================================= */
+@keyframes spinCircle {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+/* --------------------- */
+/* TEA ICON TOP ONE */
+.center-icon{
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 20;
+  color: black;
+  font-family: 'Playfair Display', serif;
+}
+
+.center-icon img{
+    width: 70px; /* Adjust this number to make the logo bigger/smaller */
+    height: auto; /* Keeps the aspect ratio correct */
+    
+    /* Optional: Adds a subtle shadow to pop against the drink */
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+
+/* --- THE HAMBURGER ICON --- */
+/* --- HAMBURGER ICON --- */
+.menu-icon {
+    position: fixed;
+    top: 40px; right: 40px;
+    cursor: pointer;
+    z-index: 50;  /* Lower than the menu (100) so the white box covers it anyway */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    
+    /* ADD THIS: Smooth fade transition */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ADD THIS: The class that hides the icon */
+.menu-icon.hide-burger {
+    opacity: 0;
+    pointer-events: none; /* Prevents clicking invisible icon */
+    transform: rotate(90deg); /* Optional: twists it slightly as it vanishes */
+}
+.bar {
+    width: 30px; height: 2px; background-color: #333;
+    transition: 0.3s;
+}
+
+/* --- THE SIDE DRAWER MENU (50% Width) --- */
+#fullscreen-menu {
+    position: fixed;
+    top: 0; 
+    right: 0;             /* Anchors to the RIGHT */
+    width: 50%;           /* Takes up exactly HALF the screen */
+    height: 100vh;        /* Full vertical height */
+    background: #fff;     /* White background */
+    z-index: 100;
+    
+    /* Center the Links */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  /* Centers text horizontally */
+    
+    /* Animation: Start pushed off-screen to the right */
+    transform: translateX(100%); 
+    transition: transform 0.5s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.05); /* Subtle shadow on left edge */
+}
+
+/* State: OPEN */
+#fullscreen-menu.active {
+    transform: translateX(0); /* Slides back into view */
+}
+
+/* --- THE LINKS --- */
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;         /* Space between links */
+    text-align: left;  /* Align text left (or center if you prefer) */
+}
+
+.menu-links a {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;   /* Large elegant text */
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+    position: relative;
+    display: block;
+}
+
+.menu-links a:hover {
+    color: #000;
+   border-bottom: 2px solid #b98e6c;
+}
+
+/* The little squiggle "~" */
+.tilde {
+    font-size: 40px;
+    margin-right: 15px;
+    vertical-align: middle;
+    font-weight: 300;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 40px; right: 40px; /* Aligns with hamburger position */
+    background: none; border: none;
+    font-size: 14px; letter-spacing: 2px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Mobile: Make full width on small screens */
+@media (max-width: 768px) {
+    #fullscreen-menu {
+        width: 100%;
+    }
+}
+/* page2 */
+.page2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 100px; /* Same spacing as &TEA website */
+  background-color: #f7f2e7;
+  gap: 80px;
+}
+
+/* LEFT SIDE MENU */
+.page2 > div:nth-child(1) ul {
+  list-style: none;
+  font-size: 22px;
+  line-height: 38px;
+  color: #b98e6c; /* same golden beige color */
+  letter-spacing: 1px;
+}
+
+.page2 > div:nth-child(1) li {
+  cursor: pointer;
+}
+.borderleft {
+  border-left: 1px solid #b98e6c;
+  padding: 16px;
+}
+
+/* MIDDLE COLUMN TEXT */
+.page2 > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.page2 h3 {
+  font-size: 28px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #3e3e3e;
+}
+
+.page2 p {
+  font-size: 16px;
+  line-height: 28px;
+  color: #5f5f5f;
+  max-width: 480px;
+}
+.drinksimg {
+  width: 1.5rem;
+}
+
+/* RIGHT SIDE IMAGES */
+.limca {
+  position: relative;
+  width: 420px;
+  height: 620px;
+}
+
+.limca img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.limca :nth-child(1) {
+  top: -20px;
+  width: 420px;
+}
+.limca :nth-child(2) {
+  bottom: 0;
+  width: 420px;
+}
+/* ------------------------------- */
+.section {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 120px 80px;
+}
+
+/* Adding that straight line */
+.section::before {
+  content: ""; /* Required to make the element appear */
+  position: absolute; /* Allows us to float it freely */
+  left: 50%; /* Move it to the middle */
+  transform: translateX(-50%); /* Center it perfectly */
+  top: 0;
+  bottom: 0; /* Stretch it from top to bottom */
+  width: 1px; /* The thickness of the line */
+  background-color: #b98e6c; /* Your gold/beige theme color */
+  opacity: 0.5; /* Optional: makes it subtle */
+  z-index: -1; /* Puts the line BEHIND your content */
+}
+
+/* for alternating sections */
+.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+.reverse .text {
+  order: 2;
+}
+.reverse .img-box {
+  order: 1;
+}
+
+.img-box img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin-top: 5px;
+  color:#b98e6c;
+  font-size: 14px;
+}
+
+.desc {
+  font-family: sans-serif;
+  margin-top: 25px;
+  font-size: 15px;
+  font-weight: 400;
+  color:#7a7a7a;
+  line-height:2;
+  max-width: 500px;
+  letter-spacing: 1.5px;
+}
+/* ----------- */
+/* Container: Hides the overflow so text doesn't cause horizontal scrollbars */
+/* Container */
+.parallax-section {
+    position: relative;
+    width: 100%;
+    height: 600px;           /* Height is REQUIRED for the image to show */
+    overflow: hidden;     /*  Hides the text when it moves off screen  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;  /* Grey backup color so it's never invisible */
+}
+/* Image Wrapper */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;            /* 120% height allows it to move up/down */
+    z-index: 1;              /* Layer 1 (Bottom) */
+}
+
+.parallax-bg img {
+    width: 100%;
+    height: 100%;
+     object-fit: cover;      /* Ensures image covers the area without stretching */
+    opacity: 0.9;
+}
+
+/* Moving Text */
+.parallax-text {
+    position: relative;
+    z-index: 2;              /* Layer 2 (Top) */
+    font-size: 120px;        /* Huge text size like the video */
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4); /* See-through white */
+    white-space: nowrap;     /* Forces text to stay on one long line */
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    pointer-events: none;    /* Allows clicking through the text */
+}
+/* -------------------- */
+.news-list {
+    width: 80%;
+    margin: 100px auto; /* Centers the list on the page */
+}
+
+.news-item {
+    position: relative; /* Essential for the image to stay inside this row */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes Date/Title to Left, Icon to Right */
+    padding: 40px 20px; /* Nice vertical spacing */
+    border-bottom: 1px solid #dcdcdc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover Effect for the row (Optional) */
+.news-item:hover {
+    background-color: #fafafa;
+}
+
+/* 1. The Date (Light Grey) */
+.news-date {
+    width: 20%; /* Fixed width keeps titles aligned nicely */
+    color: #999;
+    font-size: 16px;
+}
+
+/* 2. The Title (Darker) */
+.news-title {
+    flex-grow: 1; /* Takes up all available space */
+    font-size: 16px;
+    font-family: 'Playfair Display',sans-serif; /* Use your Serif font */
+    color: #333;
+    padding-left: 20px;
+}
+.news-title:hover{
+   color: #b98e6c; 
+   
+}
+
+/* 3. The Icon (Arrow) */
+.news-icon {
+    font-size: 24px;
+    color: #b98e6c; /* Gold color */
+}
+
+/* --- THE GHOST IMAGE (Crucial Part) --- */
+.hover-img {
+    position: absolute; /* Allows it to float freely */
+    width: 180px;       /* Size of the revealed image */
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px; /* Slightly rounded corners */
+    
+    /* Start Hidden */
+    opacity: 0;
+    pointer-events: none; /* Mouse ignores the image, clicks go through it */
+    transform: translate(-50%, -50%) scale(0.8); /* Center on cursor & start slightly small */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10; /* Float on top of text */
+}
+
+/* When Javascript adds the class "active", show the image */
+.hover-img.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+/* footer */
+/* --- FOOTER LAYOUT --- */
+footer {
+    width: 100%;
+    padding: 80px 5%; /* Spacious padding */
+    background-color: #fff;
+    margin-top: 100px; /* Separation from content above */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Pushes Left, Center, Right apart */
+    align-items: flex-end; /* Aligns them to the bottom line */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 1. LEFT SIDE styling */
+.footer-left p {
+    font-size: 14px;
+    line-height: 2; /* Airy spacing */
+    color: #333;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+/* 2. CENTER styling */
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    transform: translateY(-20px); /* Lifts it up slightly to match design */
+}
+
+/* Logo Style (Matching your header) */
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+}
+.footer-logo .symbol {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1;
+}
+.footer-logo .text {
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-top: 5px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+.icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 50%; /* Perfect Circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.icon:hover {
+    border-color: #333;
+    color: #000;
+}
+
+/* Copyright Text */
+.copyright p {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+    font-family: 'Noto Serif TC', serif; /* Elegant serif for credits */
+}
+
+/* 3. RIGHT SIDE (The Top Button) */
+.top-btn {
+    width: 60px;
+    height: 100px; /* Tall oval shape */
+    border: 1px solid #333;
+    border-radius: 50px; /* Makes it an oval/pill shape */
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.top-btn .arrow {
+    font-size: 24px;
+    font-weight: 300;
+}
+.top-btn .text {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.top-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
