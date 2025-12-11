@@ -1,5 +1,7 @@
-import products from "./products";
-const productContainer =document.querySelector(".product-list");
+import products from "./products.js";
+const productContainer = document.querySelector(".product-list");
+
+console.log(products);
 
 if (productContainer) {
     displayProducts();
@@ -16,6 +18,8 @@ function displayProducts() {
           <h2 class="title">${product.title}</h2>
           <span class="category">${product.category}</span>
           <span class="price">${product.price}</span>
+          <br>
+          <button>Add to Cart</button>
         `;
         productContainer.appendChild(productCard);
 

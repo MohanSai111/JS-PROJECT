@@ -1,0 +1,73 @@
+/* --- BASE STYLES & TYPOGRAPHY --- */
+body {
+    font-family: sans-serif;
+    background-color: #fcfbf5; /* Soft cream background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* --- FORM CONTAINER (.form) --- */
+.form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft floating shadow */
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* --- TITLE --- */
+.form h2 {
+    font-family: 'Playfair Display', serif; /* Elegant title font */
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* --- INPUT FIELDS --- */
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="number"] {
+    width: 100%; 
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; /* Includes padding in the width */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+/* Focus State */
+.form input:focus {
+    border-color: #b98e6c; /* Elegant gold focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(185, 142, 108, 0.3);
+}
+
+/* --- SUBMIT BUTTON --- */
+.form input[type="submit"] {
+    background-color: #b98e6c; /* Gold button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+/* Button Hover State */
+.form input[type="submit"]:hover {
+    background-color: #a38161; /* Slightly darker gold on hover */
+    transform: translateY(-1px);
+}

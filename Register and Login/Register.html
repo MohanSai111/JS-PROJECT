@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Register.css">
+</head>
+<body>
+    <div class="form">
+        <h2>Register Here</h2>
+        <form action="" onsubmit="fillData(event)">
+            <input name="f_name" type="text" placeholder="Enter your first Name"><br>
+            <input name="l_name" type="text" placeholder="Enter your Last Name"><br>
+            <input name="email" type="email" placeholder="Enter your email"><br>
+            <input name="password" type="password" placeholder="Enter your password"><br>
+            <input name="c_password" type="password" placeholder="Enter your confirm password"><br>
+            <input name="number" type="number" placeholder="Enter your  number"><br>
+            <input type="submit" value="Register"><br>
+    </div>
+    <div id="users">
+
+    </div>
+    <script>
+        let details = {};
+        function fillData(e) {
+          e.preventDefault();          
+            let allTags = document.getElementsByTagName("input");
+            for (let i = 0; i < allTags.length; i++) {
+                if (allTags[i].type == "submit") {
+                    continue
+                } else {
+                    details[allTags[i].name] = allTags[i].value;
+                }
+            }
+            if (localStorage.getItem("Form_Details")) {
+                let data = localStorage.getItem("Form_Details");
+                console.log(data);
+                let newData = JSON.parse(data);
+
+                for (i = 0; i < newData.length; i++) {
+                    if (newData[i].email == details.email) {
+                        alert("Exsisting");
+                        break;
+                    } else {
+                        newData.push(details);
+                        //    console.log(newData);
+                        localStorage.setItem("Form_Details", JSON.stringify(newData));
+                        break;
+
+                    }
+                }
+
+            } else {
+                localStorage.setItem("Form_Details", JSON.stringify([details]));
+            }
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

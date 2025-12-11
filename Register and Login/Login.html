@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Login.css">
+</head>
+
+<body>
+    <div class="Form" >
+        <h3>Login Here</h3>
+        <br>
+        <input type="Email" placeholder="Enter Your Email" id="email">
+        <br>
+        <br>
+        <input type="Password" placeholder="Enter your Password" id="password">
+         <br>
+         <br>
+         <button onclick="handleLogin(event)">Login</button>
+    </div>
+</body>
+<script>
+    function handleLogin(e) {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let getData = localStorage.getItem("Form_Details");
+        let newData = JSON.parse(getData);
+
+        if (email == newData.email) {
+            console.log("email is valid");
+        } else {
+          console.log("not valid");  
+        }
+
+    }
+</script>
+
+</html>

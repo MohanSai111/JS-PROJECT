@@ -575,3 +575,33 @@ footer {
     color: #fff;
 }
 
+/* --- New Authentication Grouping --- */
+.auth-links {
+    /* Creates space between the main menu and the login links */
+    margin-top: 50px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the login/register text */
+    gap: 15px; /* Spacing around the separator */
+}
+
+/* Styling for the smaller Login/Register links */
+.auth-link {
+    font-size: 18px; /* Significantly smaller than main menu */
+    color: #444; 
+    text-decoration: none;
+    font-family: sans-serif; /* Using a clean font, not the big serif */
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.auth-link:hover {
+    color: #b98e6c; /* Gold hover color */
+}
+
+/* Styling for the separator "/" */
+.auth-links span {
+    font-size: 18px;
+    color: #999;
+}
