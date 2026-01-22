@@ -51,3 +51,104 @@ nav{
     text-align: center;
     display: none;
  }
+ /* --- PRODUCT COLLECTION LAYOUT --- */
+.product-collection {
+    padding: 100px 9% 50px; /* Adjust top padding to clear the fixed nav */
+    background-color: #f7f7f7; /* Light background for the products area */
+}
+
+.product-collection h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #333;
+}
+
+/* --- THE GRID CONTAINER --- */
+.product-list {
+    display: grid;
+    /* Create a responsive grid: 
+       Auto-fit means it adjusts to the screen size. 
+       minmax ensures cards are between 250px and 1fr wide. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Space between cards */
+}
+
+/* --- INDIVIDUAL PRODUCT CARD --- */
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- IMAGE STYLING --- */
+.img-box {
+    width: 100%;
+    height: 300px; /* Fixed height for consistent look */
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the box without stretching */
+    transition: transform 0.5s;
+}
+
+.img-box img:hover {
+    transform: scale(1.05); /* Slight zoom on image hover */
+}
+
+/* --- TEXT AND PRICE --- */
+.product-card .title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.product-card .category {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.product-card .price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #e35f26; /* Accent color for price */
+    margin-bottom: 15px;
+}
+
+/* --- ADD TO CART BUTTON --- */
+.product-card button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width button */
+    margin-top: auto; /* Pushes the button to the bottom of the card */
+}
+
+.product-card button:hover {
+    background-color: #e35f26; /* Hover color accent */
+}
